@@ -1,4 +1,4 @@
-# Basic HTML, JavaScript, SASS and Gulp Interview
+## Basic HTML, JavaScript, SASS and Gulp Interview
 
 Dear candidate, please follow this readme and solve all questions.
 
@@ -12,7 +12,7 @@ Dear candidate, please follow this readme and solve all questions.
 
 --------
 
-## 1. Gulp
+#### 1. Gulp
 
 แก้ไข gulpfile ให้รองรับการทำงานตามด้านล่างนี้
 
@@ -28,7 +28,7 @@ Dear candidate, please follow this readme and solve all questions.
 5. สร้าง task สำหรับ build ทำการสร้างไฟล์ผลลัพท์ทั้งหมด
 โดยให้ผลลัพท์ทั้งหมดอยู่ในโฟลเดอร์ dist
 
-## 2. HTML, JavaScript, SASS
+#### 2. HTML, JavaScript, SASS
 
 1. แก้ไขไฟล์ index.html ตามข้างล่างนี้
 \- ใส่ ชื่อ อายุ อีเมล์ ประวัติส่วนตัว
@@ -44,4 +44,6 @@ Dear candidate, please follow this readme and solve all questions.
 
 4. ใช้งานคลาสในข้อ 3 กับทุกรุปภาพ
 
-## Thank you for your participation! Good luck submitting your results!
+
+
+**Thank you for your participation! Good luck submitting your results!**

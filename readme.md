@@ -5,6 +5,7 @@ Dear candidate, please follow this readme and solve all questions.
 **This test requires:**
 - access to the internet
 - an HTML, SASS and JS capable IDE (we suggest vscode)
+- git
 - nodejs 8.0+
 - npm or yarn
 
@@ -12,7 +13,10 @@ Dear candidate, please follow this readme and solve all questions.
 
 --------
 
-#### 1. Gulp
+#### 0. Prepare
+Clone this repository to you machine. Please commit your changes as often as possible.
+
+#### 1. Gulp task
 
 Edit the gulp file to support the task below
 

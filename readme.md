@@ -14,37 +14,31 @@ Dear candidate, please follow this readme and solve all questions.
 
 #### 1. Gulp
 
-แก้ไข gulpfile ให้รองรับการทำงานตามด้านล่างนี้
+Edit the gulp file to support the task below
 
-1. สร้าง task สำหรับการ compile ไฟล์ scss เป็น css 
+1. Create the task for compiling .sass or .scss files to css files
 
-2. สร้าง task สำหรับการ compile ไฟล์ es6 js เป็น browser-compatible js
+2. Create the task for compiling ES6 into ES5 for browser compatibility
 
-3. สร้างฟีเจอร์ live reload ข้อ 1 และ 2
+3. Create the live-reload task when the file has changed
 
-4. สร้าง task สำหรับ dev โดยให้ทำการ compile ข้อ 1 และ 2 
-อัตโนมัติเมื่อมี code การเปลี่ยนแปลง
-
-5. สร้าง task สำหรับ build ทำการสร้างไฟล์ผลลัพท์ทั้งหมด
-โดยให้ผลลัพท์ทั้งหมดอยู่ในโฟลเดอร์ dist
+4. Create the task for building files into the /dist directory (dist / css dist / js)
 
 ------
 
 ##### 2. HTML, JavaScript, SASS
 
-1. แก้ไขไฟล์ index.html ตามข้างล่างนี้
-  * ใส่ ชื่อ อายุ อีเมล์ ประวัติส่วนตัว
-  * รูปภาพสัตว์ต่างๆ จำนวน 20 รูป
+1. Edit index.html to enter your information, such as name, age, email, hobby
+2. Edit index.html to add 20 pictures of animals.
 
-2. แก้ไขไฟล์ css/index.scss ทำให้ชื่อเป็นตัวหนาและมีสีแดง
-และทำจัดให้รูปภาพสัตว์ต่างๆ แสดงผล ตามเงื่อนไขข้างล่างนี้
-  * มือถือ แถวละ 1 รูป
-  * แท็บเล็ต แถวละ 2 รูป
-  * คอมพิวเตอร์ แถวละ 3 รูป
+3. Edit css/index.scss to make to name red and bold. Edit the image style to display as in the condition below.
+  * Mobile display 1 picture in a row
+  * Tablet display 2 pictures in a row
+  * PC display 3 pictures in a row
 
-3. แก้ไขไฟล์ js/index.js โดยให้สร้างคลาสชื่อว่า ImageLazyLoad จุดประสงค์การทำงานคือ จะบังคับให้ tag img ดาวโหลดรูปภาพเฉพาะที่แสดงผลในจอเท่านั้น รูปภาพที่อยู่นอกจอจะไม่ถูกดาวโหลด
+3. Edit js/index.js to create a class called ImageLazyLoad (ES6), this class works to download img when scrolled into the viewport.
 
-4. ใช้งานคลาสในข้อ 3 กับทุกรุปภาพ
+4. Apply class ImageLazyLoad to all images.
 
 ------
 
@@ -52,17 +46,17 @@ Dear candidate, please follow this readme and solve all questions.
 
 ![guide](src/img/guide.png)
 
-1. แก้ไขไฟล์ forest.html สร้างสไลด์เต็มจอ ตามรูปภาพข้างบน (ภาพ 2) มีภาพจำนวน 5-10 ภาพ กำหนดให้แต่ละภาพต่อกันตามตัวอย่าง
+1. Edit forest.html to create a full screen slide. Following to the picture above (picture 2), there are 5-10 images. Each picture is arranged following an example.
 
-2. การเปลี่ยนภาพ จะเป็นการเลื่อนจากซ้ายไปขวาหรือจากขวาไปซ้าย โดยให้ใช้คีบอร์ดปุ่มลูกศรซ้ายขวาในการบังคับเลื่อนไปภาพต่อไปด้านซ้าย หรือภาพต่อไปด้านขวา
+2. The images will move from left to right or from right to left By using the left and right arrow keys in the keyboard
 
-3. ภาพจะเลื่อนมาหยุดที่ตรงกลางเสมอ ตามตัวอย่างภาพที่ 3 และ 4
+3. The image will always move and stop in the middle. Following an example picture 3 and 4
 
-4. เมื่อคลิกที่ภาพตรง (ตรงกลางเท่านั้น) ให้แสดงปุ่มขึ้นมาสองปุ่ม คือ
-  * SAVE สำหรับดาวโหลดภาพเก็บไว้
-  * REMOVE สำหรับลบภาพออกไป
+4. When you click the image center, the hidden buttons will appear.
+  * SAVE: To download the image to user machine
+  * REMOVE: To remove the image from the dispaly
 
-5. เมื่อลบภาพแล้ว ภาพที่เหลือจะถูกจัดเรียงต่อกันและทำงานได้เช่นเดิม
+5. When some image has been removed. The remaining images will be arranged and styled as before.
 
-  * **อนุญาติให้ใช้ jQuery core หรือ Standard JS (ECMAScript 5.1+) เท่านั้น ไม่อนุญาติให้ใช้ Plugin ใดๆ เพิ่มเติม**  
-  * **สามารถใช้งาน Preprocessor ได้ตามถนัด**
+* **Allowed to use jQuery core or Standard JS (ECMAScript 5.1+), Not allowed to use any plug-ins**  
+* **Allowed to use Babel, TS (Preprocessor) as you like**

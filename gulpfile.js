@@ -1,30 +1,23 @@
 const gulp = require('gulp');
+const connect = require('gulp-connect');
 const sass = require('gulp-sass');
-sass.compiler = require('node-sass');
- 
-gulp.task('sass', function () {
-  return gulp.src('src/css/*.scss')
-    .pipe(sass.sync().on('error', sass.logError))
-    .pipe(gulp.dest('dist/css'));
-});
- 
-gulp.task('sass:watch', function () {
-  gulp.watch('src/css/*.scss', ['sass']);
-});
-
-const { src, dest } = require('gulp');
 const babel = require('gulp-babel');
 const plumber = require('gulp-plumber');
+ 
+sass.compiler = require('node-sass');
 
-// Gulp 4 uses exported objects as its tasks. Here we only have a
-// single export that represents the default gulp task.
-exports.default = function(done) {
-  // This will grab any file within src/components or its
-  // subdirectories, then ...
-  return src('src/js/*.js')
-    // Stop the process if an error is thrown.
+// scss //
+gulp.task('sass', function () {
+  return gulp.src('./src/css/*.scss')
     .pipe(plumber())
-    // Transpile the JS code using Babel's preset-env.
+    .pipe(sass())
+    .pipe(gulp.dest('./dist/css'))
+    .pipe(connect.reload());
+});
+// js //
+gulp.task('script', function () {
+  return gulp.src('./src/js/*.js')
+    .pipe(plumber())
     .pipe(babel({
       presets: [
         ['@babel/env', {
@@ -32,6 +25,28 @@ exports.default = function(done) {
         }]
       ]
     }))
-    // Save each component as a separate file in dist.
-    .pipe(dest('dist/js'))
-};
+    .pipe(gulp.dest('./dist/js'))
+    .pipe(connect.reload());
+});
+// html //
+gulp.task('html', function () {
+  return gulp.src('./src/*.html')
+    .pipe(gulp.dest('./dist'))
+    .pipe(connect.reload());
+});
+
+gulp.task('webserver', function() {
+  connect.server({
+    root: 'dist',
+    livereload: true,
+    open: true
+  });
+});
+
+gulp.task('watch', function () {
+  gulp.watch('./src/css/*.scss', gulp.series('sass'));
+  gulp.watch('./src/js/*.js', gulp.series('script'));
+  gulp.watch('./src/*.html', gulp.series('html'));
+});
+
+gulp.task('default', gulp.parallel('webserver', 'watch'));

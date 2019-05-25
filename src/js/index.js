@@ -13,14 +13,11 @@ function debounce(func, wait, immediate) {
 		if (callNow) func.apply(context, args);
 	};
 };
-
 function lazyLoad() {
   imgs.forEach(img => {
-    console.log(window.innerHeight, img.getBoundingClientRect().top, img.getBoundingClientRect().bottom)
-    if ((img.getBoundingClientRect().top <= window.innerHeight && img.getBoundingClientRect().bottom >= 0) 
-    && getComputedStyle(img).display !== "none") {
+    if (img.getBoundingClientRect().top < window.pageYOffset + window.innerHeight ) {
       img.src = img.dataset.src
-      img.classList.remove("lazy");
+      img.onload = () => img.classList.add('loaded')
     }
   })
 }

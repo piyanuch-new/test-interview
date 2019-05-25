@@ -3,6 +3,16 @@ const connect = require('gulp-connect');
 const sass = require('gulp-sass');
 const babel = require('gulp-babel');
 const plumber = require('gulp-plumber');
+const autoprefixer = require('gulp-autoprefixer');
+const browser_support = [
+  'ie >= 9',
+  'ie_mob >= 10',
+  'ff >= 31',
+  'chrome >= 36',
+  'safari >= 6',
+  'ios >= 6',
+  'android >= 4'
+];
 
 sass.compiler = require('node-sass');
 
@@ -11,6 +21,7 @@ gulp.task('sass', function () {
   return gulp.src('./src/css/*.scss')
     .pipe(plumber())
     .pipe(sass())
+    .pipe(autoprefixer(browser_support))
     .pipe(gulp.dest('./dist/css'))
     .pipe(connect.reload());
 });

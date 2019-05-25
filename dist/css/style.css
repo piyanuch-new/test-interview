@@ -52,7 +52,6 @@ table {
 
 * {
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
 section {
@@ -100,6 +99,7 @@ header {
   z-index: 4;
   background: #fff;
   text-align: center;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.7);
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.7); }
   header a {
     display: block;
@@ -132,6 +132,7 @@ main {
 
 a {
   text-decoration: none;
+  -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out; }
 
 .container {
@@ -147,6 +148,7 @@ a {
   top: 50%;
   left: 50%;
   z-index: 2;
+  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%); }
 
 @media screen and (max-width: 1300px) {

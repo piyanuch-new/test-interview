@@ -28,8 +28,10 @@
     bottom: 0;
     left: 50%;
     background: #86baa3;
+    -webkit-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
-    -webkit-transition: all 0.3s ease-out; }
+    -webkit-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out; }
   .list-profile li a:hover:after {
     width: 100%; }
 
@@ -42,6 +44,8 @@
   display: block;
   font-size: 0; }
   .list-img li {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
     width: 33.33%;
     padding: 15px; }
@@ -57,7 +61,8 @@
       position: absolute;
       display: block;
       opacity: 0;
-      -webkit-transition: all 0.2s ease-out; }
+      -webkit-transition: all 0.2s ease-out;
+      transition: all 0.2s ease-out; }
     .list-img li img.loaded {
       opacity: 1; }
 

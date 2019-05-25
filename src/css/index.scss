@@ -44,7 +44,7 @@ $color-hl: #faf5b7;
 			left: 50%;
 			background: $color-primary;
 			transform: translate(-50%,0); 
-			-webkit-transition: all 0.3s ease-out;
+			transition: all 0.25s ease-out;
 		}
 		a:hover:after{
 			width: 100%;
@@ -76,7 +76,7 @@ $color-hl: #faf5b7;
 			position: absolute;
 			display: block;			
 			opacity: 0;
-			-webkit-transition: all 0.2s ease-out;
+			transition: all 0.2s ease-out;
 		}
 		img.loaded{			
 			opacity: 1;

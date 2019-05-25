@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "Dear candidate, please follow this readme and solve all questions.",
   "main": "gulpfile.js",
-  "dependencies": {
-    "debounce": "^1.2.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",

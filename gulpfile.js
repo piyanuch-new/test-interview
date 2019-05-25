@@ -3,7 +3,7 @@ const connect = require('gulp-connect');
 const sass = require('gulp-sass');
 const babel = require('gulp-babel');
 const plumber = require('gulp-plumber');
- 
+
 sass.compiler = require('node-sass');
 
 // scss //
@@ -38,8 +38,7 @@ gulp.task('html', function () {
 gulp.task('webserver', function() {
   connect.server({
     root: 'dist',
-    livereload: true,
-    open: true
+    livereload: true
   });
 });
 

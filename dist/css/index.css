@@ -1,51 +1,69 @@
 .page-index {
-  text-align: center;
-  padding: 40px 0; }
+  text-align: center; }
   .page-index h1 {
     padding: 30px 0; }
 
-.list-profile li b {
-  display: inline-block;
-  color: #7c9479;
-  font-size: 1.2em;
-  padding-right: 5px;
-  font-family: "Great Vibes", cursive; }
+.list-profile li {
+  padding-bottom: 10px; }
+  .list-profile li b {
+    display: inline-block;
+    color: #7c9479;
+    font-size: 1.2em;
+    padding-right: 5px;
+    font-family: "Great Vibes", cursive; }
+  .list-profile li p {
+    display: inline-block;
+    color: #666; }
+  .list-profile li a {
+    display: block;
+    color: #666;
+    position: relative;
+    padding-bottom: 2px; }
+  .list-profile li a:after {
+    content: '';
+    width: 0px;
+    height: 1px;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    background: #86baa3;
+    transform: translate(-50%, 0);
+    -webkit-transition: all 0.3s ease-out; }
+  .list-profile li a:hover:after {
+    width: 100%; }
 
-.list-profile li p {
-  display: inline-block;
-  color: #666; }
-
-.list-profile li a {
-  display: block;
-  color: #666;
-  position: relative;
-  padding-bottom: 2px; }
-
-.list-profile li a:after {
-  content: '';
-  width: 0px;
-  height: 1px;
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  background: #86baa3;
-  transform: translate(-50%, 0);
-  -webkit-transition: all 0.3s ease-out; }
-
-.list-profile li a:hover:after {
-  width: 100%; }
+.list-profile li:last-child {
+  padding-bottom: 0; }
 
 .list-img {
-  padding: 60px 0;
-  margin: 0 auto;
-  display: block; }
+  padding: 40px 0 50px;
+  margin: 0 -15px;
+  display: block;
+  font-size: 0; }
   .list-img li {
-    display: block;
-    float: left;
+    display: inline-flex;
     width: 33.33%;
     padding: 15px; }
     .list-img li img {
       width: 100%;
-      height: auto;
+      height: 100%;
       display: block; }
+
+@media screen and (max-width: 1300px) {
+  .page-index h1 {
+    padding: 25px 0; } }
+
+@media screen and (max-width: 1024px) {
+  .list-img li {
+    width: 50%; } }
+
+@media screen and (max-width: 600px) {
+  .page-index h1 {
+    padding: 20px 0; }
+  .list-img {
+    padding: 20px 0;
+    margin: 0; }
+    .list-img li {
+      width: 100%;
+      padding: 10px 0; } }

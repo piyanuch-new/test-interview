@@ -90,7 +90,7 @@ h4 {
 
 header {
   width: 100%;
-  padding: 5px;
+  padding: 10px;
   line-height: 1.8em;
   font-family: "Great Vibes", cursive;
   overflow: hidden;
@@ -105,22 +105,30 @@ header {
     display: block;
     padding: 0 10px;
     text-transform: uppercase;
-    font-size: 1.2em;
+    font-size: 1.4em;
     font-weight: 500;
     margin: 0 auto;
     border-radius: 50%;
     background: #86baa3;
     color: #ecf6e2;
-    width: 50px;
-    height: 50px;
-    line-height: 50px; }
+    width: 48px;
+    height: 48px;
+    line-height: 48px; }
   header a:hover {
-    color: #86baa3; }
+    color: #fff; }
+
+footer {
+  text-align: center;
+  border-top: 1px solid #9abe96;
+  padding: 10px 0;
+  margin-top: 20px;
+  color: #ecf6e2; }
 
 /* main */
 main {
-  margin-top: 60px;
-  overflow: hidden; }
+  margin-top: 88px;
+  overflow: hidden;
+  padding: 0 20px; }
 
 a {
   text-decoration: none;
@@ -140,3 +148,22 @@ a {
   left: 50%;
   z-index: 2;
   transform: translate(-50%, -50%); }
+
+@media screen and (max-width: 1300px) {
+  h1 {
+    font-size: 3.5em; }
+  h2 {
+    font-size: 1.4em; } }
+
+@media screen and (max-width: 1024px) {
+  h1 {
+    font-size: 2.5em;
+    line-height: 1.4em; }
+  h2 {
+    font-size: 1.2em; } }
+
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 0 20px; }
+  h1 {
+    font-size: 2em; } }

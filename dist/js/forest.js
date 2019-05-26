@@ -177,4 +177,12 @@ $(document).ready(function () {
 
     e.preventDefault();
   });
+  $(".btn-remove").click(function (e) {
+    var boxImg = $(this).closest(".box-img"),
+        boxList = boxImg.closest("li");
+    console.log(src, boxList);
+    boxList.remove();
+    slideFullScreen();
+    e.preventDefault();
+  });
 });

@@ -1,19 +1,25 @@
 $(document).ready(function() {
   var wrap    = $(".slide");  
   function slideFullScreen(){
-    var item    = wrap.find("li"),
-        active  = wrap.find("li.active"),
+    var item    = $(".slide > li"),
+        active  = $(".slide > li.active"),
         activeW = active.width(),
         winW    = $(window).width(),
         half    = (winW - activeW)/2,
         sum     = 0;
 
-    console.log(sum, winW, activeW, half);    
+    // console.log(sum, winW, activeW, half);    
     item.each( function(i){
       var width = $(this).width(),
-          img   = $(this).find("img");
+          box   = $(this).find(".box-img"),
+          img   = $(this).find("img"),
+          src   = img.attr("src");
 
       $(this).css("width", width);
+      if(wrap.hasClass("slide-fullheight")){
+        box.css("background-image", "url("+ src +")");
+      }
+      console.log(i, src);
       setTimeout(function(){
         img.css({
           "transform": "translate(-50%, -50%)",
@@ -34,7 +40,7 @@ $(document).ready(function() {
     }, 50);
   }
   function nextSlide(){
-    var item         = $(".slide li"),
+    var item         = $(".slide > li"),
         currentSlide = item.index($(".active")),
         next         = currentSlide + 1,
         pastW        = 0,
@@ -55,7 +61,7 @@ $(document).ready(function() {
   }
 
   function prevSlide(){
-    var item         = $(".slide li"),
+    var item         = $(".slide > li"),
         currentSlide = item.index($(".active")),
         prev         = currentSlide - 1,
         pastW        = 0,
@@ -130,11 +136,11 @@ $(document).ready(function() {
       }  
       wrap.css("width", sumResize).addClass("initSlide"); 
       console.log(sumResize);     
-    }, 120);
+    }, 130);
   }
   setTimeout(function(){
     slideFullScreen();
-  }, 50);
+  }, 100);
   $(window).resize(
     function(){
       wrap.removeClass("initSlide");
@@ -142,7 +148,7 @@ $(document).ready(function() {
       window.resizedFinished = setTimeout(function(){
         console.log('Resized finished.');
         resizeSlide();
-      }, 200);
+      }, 150);
     }
   );
   $(document).keydown(function(e) {
@@ -157,8 +163,8 @@ $(document).ready(function() {
           // console.log("right");
           nextSlide();
         break;
-        default: return; // exit this handler for other keys
+        default: return;
     }
-    e.preventDefault(); // prevent the default action (scroll / move caret)
+    e.preventDefault();
   });   
 });

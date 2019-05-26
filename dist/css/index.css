@@ -29,7 +29,8 @@
     left: 50%;
     background: #86baa3;
     -webkit-transform: translate(-50%, 0);
-    transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
     -webkit-transition: all 0.25s ease-out;
     transition: all 0.25s ease-out; }
   .list-profile li a:hover:after {
@@ -45,6 +46,7 @@
   font-size: 0; }
   .list-img li {
     display: -webkit-inline-box;
+    display: -webkit-inline-flex;
     display: -ms-inline-flexbox;
     display: inline-flex;
     width: 33.33%;

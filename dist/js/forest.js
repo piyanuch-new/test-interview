@@ -87,11 +87,11 @@ $(document).ready(function () {
 
 
   function resizeSlide() {
-    var item = $(".slide li"),
+    var item = $(".slide > li"),
         currentSlide = item.index($(".active")),
-        prev = currentSlide - 1,
         pastW = 0,
         sumResize = 0;
+    console.log("resize : " + currentSlide);
     wrap.css("width", "100vw");
     item.each(function (i) {
       var thisItem = $(this),
@@ -122,9 +122,8 @@ $(document).ready(function () {
       }, 50);
     });
     setTimeout(function () {
-      var prevW = item.eq(currentSlide).width(),
-          winW = $(window).width(),
-          activeW = $(".slide li.active").width(),
+      var winW = $(window).width(),
+          activeW = $(".slide > li.active").width(),
           halfActive = (winW - activeW) / 2;
 
       if (currentSlide != 0) {
@@ -140,7 +139,7 @@ $(document).ready(function () {
 
       wrap.css("width", sumResize).addClass("initSlide");
       console.log(sumResize);
-    }, 130);
+    }, 120);
   } // remove slide
 
 
@@ -182,7 +181,6 @@ $(document).ready(function () {
         boxList = boxImg.closest("li"),
         item = $(".slide > li"),
         activeIndex = item.index($(".active"));
-    console.log(activeIndex + 1, item.length);
 
     if (activeIndex + 1 == item.length) {
       item.eq(activeIndex - 1).addClass("active");
@@ -205,7 +203,7 @@ $(document).ready(function () {
     window.resizedFinished = setTimeout(function () {
       console.log('Resized finished.');
       resizeSlide();
-    }, 150);
+    }, 200);
   });
   $(document).keydown(function (e) {
     var ew = e.which;

@@ -1,5 +1,7 @@
 $(document).ready(function() {
-  var wrap    = $(".slide");  
+  var wrap    = $(".slide"); 
+  
+  // init slide
   function slideFullScreen(){
     var item    = $(".slide > li"),
         active  = $(".slide > li.active"),
@@ -19,7 +21,6 @@ $(document).ready(function() {
       if(wrap.hasClass("slide-fullheight")){
         box.css("background-image", "url("+ src +")");
       }
-      console.log(i, src);
       setTimeout(function(){
         img.css({
           "transform": "translate(-50%, -50%)",
@@ -39,6 +40,8 @@ $(document).ready(function() {
       }).addClass("initSlide");
     }, 50);
   }
+
+  // next
   function nextSlide(){
     var item         = $(".slide > li"),
         currentSlide = item.index($(".active")),
@@ -49,7 +52,6 @@ $(document).ready(function() {
         halfNext     = parseInt((winW - nextW)/2);
 
     if(next != item.length){
-      console.log(next);
       item.eq(currentSlide).removeClass("active");
       item.eq(next).addClass("active");
       for(i = 0; i < next; i++) {     
@@ -60,6 +62,7 @@ $(document).ready(function() {
     }
   }
 
+  // prev
   function prevSlide(){
     var item         = $(".slide > li"),
         currentSlide = item.index($(".active")),
@@ -70,7 +73,6 @@ $(document).ready(function() {
         halfPrev     = parseInt((winW - prevW)/2);
 
     if(currentSlide != 0){
-      console.log(prev);
       item.eq(currentSlide).removeClass("active");
       item.eq(prev).addClass("active");
       for(i = 0; i < prev; i++) {     
@@ -81,14 +83,14 @@ $(document).ready(function() {
     }
   } 
   
+  // resize slide
   function resizeSlide(){
     var item         = $(".slide li"),
         currentSlide = item.index($(".active")),
         prev         = currentSlide - 1,
         pastW        = 0,
         sumResize    = 0;
-
-    console.log("resize : "+currentSlide);    
+    
     wrap.css("width", "100vw");
     item.each( function(i){
       var thisItem = $(this),
@@ -138,6 +140,60 @@ $(document).ready(function() {
       console.log(sumResize);     
     }, 130);
   }
+
+  // remove slide
+  function removeSlide(){
+    var wrapSlide = $(".slide"),
+        item      = $(".slide > li"),
+        active    = $(".slide > li.active"),
+        sum       = 0,
+        pastW     = 0,
+        activeW   = active.width(),
+        winW      = $(window).width(),
+        activeIndex = item.index($(".active")),
+        half      = (winW - activeW)/2;
+
+    item.each( function(i){
+      var width = $(this).width();
+      sum += width;  
+    });
+    if((activeIndex+1) == item.length){
+      for(i = 0; i < activeIndex; i++) {     
+        pastW += item.eq(i).width();
+      }
+      var sumPrev = -Math.abs(pastW) + half;
+      wrapSlide.css({
+        "width": sum,
+        "transform": "matrix(1, 0, 0, 1, "+ sumPrev +", 0)"
+      });
+    }
+    else{
+      wrapSlide.css({
+        "width": sum,
+        "transform": "matrix(1, 0, 0, 1, "+ half +", 0)"
+      });
+    }
+  }
+  $(".btn-remove").click(function(e){
+    var boxImg   = $(this).closest(".box-img"),
+        boxList  = boxImg.closest("li"),
+        item     = $(".slide > li"),
+        activeIndex   = item.index($(".active"));
+
+    console.log(activeIndex+1, item.length); 
+    if((activeIndex+1) == item.length){
+      item.eq(activeIndex-1).addClass("active");
+    }
+    else{
+      item.eq(activeIndex+1).addClass("active");
+    }
+    boxList.remove();
+    e.preventDefault();
+    setTimeout(function(){
+      removeSlide();
+    }, 10);
+  });
+  
   setTimeout(function(){
     slideFullScreen();
   }, 100);
@@ -167,13 +223,4 @@ $(document).ready(function() {
     }
     e.preventDefault();
   }); 
-  $(".btn-remove").click(function(e){
-    var boxImg   = $(this).closest(".box-img"),
-        boxList  = boxImg.closest("li");
-
-    console.log(src, boxList);  
-    boxList.remove();
-    slideFullScreen();
-    e.preventDefault();
-  })
 });

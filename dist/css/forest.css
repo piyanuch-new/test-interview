@@ -49,7 +49,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.3);
   z-index: 2;
   top: 0;
   left: 0;
@@ -73,7 +73,6 @@
     .box-btn ul a {
       width: 120px;
       height: 120px;
-      line-height: 120px;
       border-radius: 50%;
       color: #ecf6e2;
       font-size: 2.5em;
@@ -82,27 +81,38 @@
       margin: 0 auto;
       position: relative;
       cursor: pointer;
-      overflow: hidden; }
+      overflow: hidden;
+      box-sizing: border-box; }
+      .box-btn ul a:before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        -webkit-transition: all 0.25s ease-out;
+        transition: all 0.25s ease-out;
+        background-color: rgba(0, 0, 0, 0); }
+      .box-btn ul a:hover {
+        border: 8px solid rgba(236, 246, 226, 0.4); }
+      .box-btn ul a:active {
+        top: 1px; }
       .box-btn ul a i {
-        position: relative;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        text-align: center;
+        -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
         z-index: 2; }
-    .box-btn ul a:before {
-      content: "";
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 1;
-      -webkit-transition: all 0.25s ease-out;
-      transition: all 0.25s ease-out;
-      background-color: rgba(0, 0, 0, 0); }
-    .box-btn ul a:hover:before {
-      background-color: rgba(0, 0, 0, 0.2); }
     .box-btn ul .btn-save {
-      background-color: #86baa3; }
+      background-color: #86baa3;
+      color: rgba(236, 246, 226, 0.8); }
     .box-btn ul .btn-remove {
-      background-color: #db4b4b; }
+      background-color: #db4b4b;
+      color: rgba(236, 246, 226, 0.8); }
 
 .box-btn:hover {
   opacity: 1; }
